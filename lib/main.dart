@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'stuctured/view/sign_in.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
