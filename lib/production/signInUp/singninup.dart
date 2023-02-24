@@ -61,13 +61,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(
                     height: Get.height / 30, //change this
                   ),
+                  conuntry_phone_textform(phoneController),
+                  SizedBox(
+                    height: Get.height / 30, //change this
+                  ),
                   _ContinueButton(
                     isLoading: false,
                     onPressed: () {
-                      Get.toNamed(
-                        "/otp",
-                        parameters: {'phone_number': phoneController!.value.text},
-                      );
+                      if (!phoneController!.value.text.isEmpty) {
+                        Get.toNamed(
+                          "/otp",
+                          parameters: {
+                            'phone_number': phoneController!.value.text
+                          },
+                        );
+                      }
                     },
 
                     // isLoading: controller.isLoading.value,
@@ -79,7 +87,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ///
                   ///
                   ///
-                  conuntry_phone_textform(phoneController),
+
                   SizedBox(
                     height: Get.height / 30, //change this
                   ),
