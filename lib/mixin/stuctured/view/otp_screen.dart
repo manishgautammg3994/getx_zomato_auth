@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
-import 'package:pinput/pinput.dart';
 
 import '../widgets/async_button.dart';
 
@@ -20,15 +19,15 @@ class _OTPScreenState extends State<OTPScreen> {
     const borderColor = Color.fromRGBO(22, 22, 22, 1);
     const errorColor = Color.fromRGBO(255, 234, 238, 1);
     const fillColor = Color.fromRGBO(222, 231, 240, .57);
-    final defaultPinTheme = PinTheme(
-      width: 56,
-      height: 60,
-      decoration: BoxDecoration(
-        color: fillColor,
-        borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey),
-      ),
-    );
+    // final defaultPinTheme = PinTheme(
+    //   width: 56,
+    //   height: 60,
+    //   decoration: BoxDecoration(
+    //     color: fillColor,
+    //     borderRadius: BorderRadius.circular(8),
+    //     border: Border.all(color: Colors.grey),
+    //   ),
+    // );
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -118,30 +117,30 @@ class _OTPScreenState extends State<OTPScreen> {
                           child: Container(
                             padding: EdgeInsets.symmetric(
                                 horizontal: 10, vertical: 10),
-                            child: Pinput(
-                              separator: SizedBox(width: 25),
-                              length: length,
-                              // controller: controller,
-                              // focusNode: focusNode,
-                              defaultPinTheme: defaultPinTheme,
-                              // onCompleted: (pin) {
-                              //   setState(() => showError = pin != '5555');
-                              // },
-                              focusedPinTheme: defaultPinTheme.copyWith(
-                                height: 68,
-                                width: 64,
-                                decoration:
-                                    defaultPinTheme.decoration!.copyWith(
-                                  border: Border.all(color: borderColor),
-                                ),
-                              ),
-                              errorPinTheme: defaultPinTheme.copyWith(
-                                decoration: BoxDecoration(
-                                  color: errorColor,
-                                  borderRadius: BorderRadius.circular(8),
-                                ),
-                              ),
-                            ),
+                            // child: Pinput(
+                            //   separator: SizedBox(width: 25),
+                            //   length: length,
+                            //   // controller: controller,
+                            //   // focusNode: focusNode,
+                            //   defaultPinTheme: defaultPinTheme,
+                            //   // onCompleted: (pin) {
+                            //   //   setState(() => showError = pin != '5555');
+                            //   // },
+                            //   focusedPinTheme: defaultPinTheme.copyWith(
+                            //     height: 68,
+                            //     width: 64,
+                            //     decoration:
+                            //         defaultPinTheme.decoration!.copyWith(
+                            //       border: Border.all(color: borderColor),
+                            //     ),
+                            //   ),
+                            //   errorPinTheme: defaultPinTheme.copyWith(
+                            //     decoration: BoxDecoration(
+                            //       color: errorColor,
+                            //       borderRadius: BorderRadius.circular(8),
+                            //     ),
+                            //   ),
+                            // ),
                             // OTPTextField(
                             //   length: _pinlength,
                             //   controller: controller,

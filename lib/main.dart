@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import 'mixin/stuctured/view/otp_screen.dart';
-import 'mixin/stuctured/view/sign_in.dart';
-import 'production/otp_verification/bindings/authentication_binding.dart';
-import 'production/otp_verification/otp_verificaation.dart';
+
 import 'production/signInUp/singninup.dart';
 
 void main() {
@@ -39,11 +36,11 @@ class MyApp extends StatelessWidget {
           name: "/",
           page: () => const SignUpScreen(),
         ),
-        GetPage(
-          name: "/otp",
-          page: () => OTPScreeen(),
-          binding: OTPBinding(),
-        ),
+        // GetPage(
+        //   name: "/otp",
+        //   page: () => OTPScreeen(),
+        //   binding: OTPBinding(),
+        // ),
       ],
     );
   }

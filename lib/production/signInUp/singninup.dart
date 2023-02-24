@@ -4,7 +4,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../otp_verification/otp_verificaation.dart';
 import 'widgets/async_button.dart';
 part './widgets/illustration_image.dart';
 part './widgets/boldmid_title.dart';
@@ -68,14 +67,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   _ContinueButton(
                     isLoading: false,
                     onPressed: () {
-                      if (!phoneController!.value.text.isEmpty) {
-                        Get.toNamed(
-                          "/otp",
-                          parameters: {
-                            'phone_number': phoneController!.value.text
-                          },
-                        );
-                      }
+                      // if (!phoneController!.value.text.isEmpty) {
+                      //   Get.toNamed(
+                      //     "/otp",
+                      //     parameters: {
+                      //       'phone_number': phoneController!.value.text
+                      //     },
+                      //   );
+                      // }
                     },
 
                     // isLoading: controller.isLoading.value,
