@@ -7,13 +7,13 @@ class _GoogleButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 22,
+      radius: 25,
       backgroundColor: Colors.grey[200],
       child: IconButton(
         onPressed: onPressed,
-        icon: 
-        // Icon(Icons.g_mobiledata),
-        Image.asset("assets/images/google.png"),
+        icon:
+            // Icon(Icons.g_mobiledata),
+            Image.asset("assets/images/google.png"),
         tooltip: "Google",
       ),
     );

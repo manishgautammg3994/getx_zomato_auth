@@ -1,6 +1,8 @@
 part of sign_in;
 
-Widget conuntry_phone_textform() {
+Widget conuntry_phone_textform(
+  TextEditingController? controller,
+) {
   return Row(
     children: <Widget>[
       // Expanded(
@@ -22,6 +24,7 @@ Widget conuntry_phone_textform() {
             ),
             borderRadius: BorderRadius.circular(10)),
         child: TextField(
+          controller: controller,
           style: TextStyle(fontSize: 17),
           autocorrect: true,
           // controller: widget.textController,

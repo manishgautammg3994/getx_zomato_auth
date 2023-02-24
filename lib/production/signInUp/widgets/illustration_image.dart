@@ -6,20 +6,24 @@ Widget _buildIllustration() {
       Container(
         height: Get.height / 2.3,
         width: double.infinity,
-        child: Image.network(
-          "https://www.shutterstock.com/image-photo/las-vegas-nv-september-22-600w-487851388.jpg",
-          fit: BoxFit.fill,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.fill,
+            image: Image.asset(
+              'assets/images/illu.jpeg',
+            ).image,
+          ),
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-        child: Align(
-          alignment: Alignment.topRight,
+      Align(
+        alignment: Alignment.topRight,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 30),
           child: MaterialButton(
             onPressed: () {
               /*
-                                 String phno=  provider.validatePhoneNumber(textController.text);
-                                 provider.login('+91', textController.text);*/
+                                     String phno=  provider.validatePhoneNumber(textController.text);
+                                     provider.login('+91', textController.text);*/
             },
             color: Colors.black45,
             minWidth: 70,
@@ -32,8 +36,7 @@ Widget _buildIllustration() {
             ),
           ),
         ),
-      )
+      ),
     ],
   );
 }
-//C:\Temp\zomato\uidesign\assets\images\google.png

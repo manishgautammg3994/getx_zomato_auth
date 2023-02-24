@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
-
-import 'package:sms_otp_auto_verify/sms_otp_auto_verify.dart';
+import 'package:pinput/pinput.dart';
 
 import '../widgets/async_button.dart';
 
@@ -17,17 +16,64 @@ class OTPScreen extends StatefulWidget {
 class _OTPScreenState extends State<OTPScreen> {
   @override
   Widget build(BuildContext context) {
+    const length = 6;
+    const borderColor = Color.fromRGBO(22, 22, 22, 1);
+    const errorColor = Color.fromRGBO(255, 234, 238, 1);
+    const fillColor = Color.fromRGBO(222, 231, 240, .57);
+    final defaultPinTheme = PinTheme(
+      width: 56,
+      height: 60,
+      decoration: BoxDecoration(
+        color: fillColor,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.grey),
+      ),
+    );
+
     return Scaffold(
       resizeToAvoidBottomInset: true,
       appBar: AppBar(
           elevation: 0.0,
           backgroundColor: Colors.white,
           title: Text(
-            "Enter Verification Code",
+            "OTP Verification",
             style: TextStyle(color: Colors.black),
           )),
-      body: LayoutBuilder(
-          builder: (BuildContext context, BoxConstraints constraints) {
+      body:
+          // ListView(
+          //   children: [
+          //     Column(
+          //       mainAxisAlignment: MainAxisAlignment.start,
+          //       crossAxisAlignment: CrossAxisAlignment.center,
+          //       children: [
+          //         Container(
+          //           padding:
+          //               EdgeInsets.only(top: 20, bottom: 20, left: 30, right: 30),
+          //           child: Center(
+          //             child: RichText(
+          //               textAlign: TextAlign.center,
+          //               text: TextSpan(
+          //                 text: 'We have sent Verification Code to\n',
+          //                 style: DefaultTextStyle.of(context).style,
+          //                 children: <TextSpan>[
+          //                   TextSpan(
+          //                     text: 'We have sent Verification Code to\n',
+          //                   ), //todo change
+          //                   TextSpan(
+          //                       text: ' +9199999999999',
+          //                       style: TextStyle(fontWeight: FontWeight.bold)),
+          //                 ],
+          //               ),
+          //             ),
+          //           ),
+          //         )
+          //       ],
+          //     )
+          //   ],
+          // )
+/////////////////
+          LayoutBuilder(
+              builder: (BuildContext context, BoxConstraints constraints) {
         return Container(
           height: constraints.maxHeight,
           width: constraints.maxWidth,
@@ -54,11 +100,14 @@ class _OTPScreenState extends State<OTPScreen> {
                                 style: DefaultTextStyle.of(context).style,
                                 children: <TextSpan>[
                                   TextSpan(
-                                    text: 'We have sent Verification Code to\n',
-                                  ), //todo change
+                                    text:
+                                        'We have sent a verification code to\n',
+                                  ),
+                                  TextSpan(text: "\n"), //todo change
                                   TextSpan(
-                                      text: ' +9199999999999',
+                                      text: ' +91-99999999999',
                                       style: TextStyle(
+                                          fontFamily: "GothicA1",
                                           fontWeight: FontWeight.bold)),
                                 ],
                               ),
@@ -68,20 +117,31 @@ class _OTPScreenState extends State<OTPScreen> {
                         Flexible(
                           child: Container(
                             padding: EdgeInsets.symmetric(
-                                horizontal: 50, vertical: 10),
-                            child: TextFieldPin(
-                                // textController: textEditingController,
-                                autoFocus: true,
-                                codeLength: 6,
-                                alignment: MainAxisAlignment.center,
-                                defaultBoxSize: 46.0,
-                                margin: 10,
-                                selectedBoxSize: 46.0,
-                                textStyle: TextStyle(fontSize: 16),
-                                // defaultDecoration: Decoration()
-                                onChange: (code) {
-                                  // _onOtpCallBack(code,false);
-                                }),
+                                horizontal: 10, vertical: 10),
+                            child: Pinput(
+                              separator: SizedBox(width: 25),
+                              length: length,
+                              // controller: controller,
+                              // focusNode: focusNode,
+                              defaultPinTheme: defaultPinTheme,
+                              // onCompleted: (pin) {
+                              //   setState(() => showError = pin != '5555');
+                              // },
+                              focusedPinTheme: defaultPinTheme.copyWith(
+                                height: 68,
+                                width: 64,
+                                decoration:
+                                    defaultPinTheme.decoration!.copyWith(
+                                  border: Border.all(color: borderColor),
+                                ),
+                              ),
+                              errorPinTheme: defaultPinTheme.copyWith(
+                                decoration: BoxDecoration(
+                                  color: errorColor,
+                                  borderRadius: BorderRadius.circular(8),
+                                ),
+                              ),
+                            ),
                             // OTPTextField(
                             //   length: _pinlength,
                             //   controller: controller,
@@ -123,13 +183,8 @@ class _OTPScreenState extends State<OTPScreen> {
                         AsyncButton(
                           loadingchild: const CircularProgressIndicator(),
                           style: ElevatedButton.styleFrom(
-                            minimumSize: const Size(double.maxFinite, 50),
-                            textStyle: const TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w700,
-                              letterSpacing: 1.1,
-                            ),
-                          ),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(10))),
                           onPressed: () {},
                           child: const Text("Verify"),
                           isLoading: false,
@@ -142,7 +197,7 @@ class _OTPScreenState extends State<OTPScreen> {
                             style: DefaultTextStyle.of(context).style,
                             children: <TextSpan>[
                               TextSpan(
-                                  text: "Try Other Login Methods",
+                                  text: "Try other login methods",
                                   style: TextStyle(
                                       color: Colors.red,
                                       fontWeight: FontWeight.bold)),

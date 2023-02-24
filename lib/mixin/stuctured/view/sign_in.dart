@@ -3,8 +3,10 @@ library sign_in;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/async_button.dart';
+import 'otp_screen.dart';
 part '../widgets/continue_text.dart';
 part '../widgets/illustration_image.dart';
 part '../widgets/boldmid_title.dart';
@@ -49,7 +51,10 @@ class _SignInScreenState extends State<SignInScreen> {
           height: Get.height / 30, //change this
         ),
         _ContinueButton(
-          isLoading: false, onPressed: () {},
+          isLoading: false,
+          onPressed: () {
+            Get.to(() => OTPScreen());
+          },
 
           // isLoading: controller.isLoading.value,
           // onPressed: () => controller.signIn(),

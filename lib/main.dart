@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 
 import 'mixin/stuctured/view/otp_screen.dart';
 import 'mixin/stuctured/view/sign_in.dart';
+import 'production/otp_verification/bindings/authentication_binding.dart';
+import 'production/otp_verification/otp_verificaation.dart';
+import 'production/signInUp/singninup.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,22 +18,34 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          // This is the theme of your application.
-          //
-          // Try running your application with "flutter run". You'll see the
-          // application has a blue toolbar. Then, without quitting the app, try
-          // changing the primarySwatch below to Colors.green and then invoke
-          // "hot reload" (press "r" in the console where you ran "flutter run",
-          // or simply save your changes to "hot reload" in a Flutter IDE).
-          // Notice that the counter didn't reset back to zero; the application
-          // is not restarted.
-          primarySwatch: Colors.red,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        fontFamily: "GothicA1",
+        // This is the theme of your application.
+        //
+        // Try running your application with "flutter run". You'll see the
+        // application has a blue toolbar. Then, without quitting the app, try
+        // changing the primarySwatch below to Colors.green and then invoke
+        // "hot reload" (press "r" in the console where you ran "flutter run",
+        // or simply save your changes to "hot reload" in a Flutter IDE).
+        // Notice that the counter didn't reset back to zero; the application
+        // is not restarted.
+        primarySwatch: Colors.red,
+      ),
+      //SignInScreen() // OTPScreen() // SignInScreen() //ZomatoLoginStateful(title: "Zomato"),
+      initialRoute: "/",
+      getPages: [
+        GetPage(
+          name: "/",
+          page: () => const SignUpScreen(),
         ),
-        home:
-            OTPScreen() //SignInScreen()//ZomatoLoginStateful(title: "Zomato"),
-        );
+        GetPage(
+          name: "/otp",
+          page: () => OTPScreeen(),
+          binding: OTPBinding(),
+        ),
+      ],
+    );
   }
 }
 
@@ -119,10 +134,6 @@ class MyApp extends StatelessWidget {
 //   }
 // }
 
-
-
-
-
 // class ZomatoLoginStateful extends StatefulWidget {
 //   ZomatoLoginStateful({Key? key, this.title}) : super(key: key);
 
@@ -136,9 +147,6 @@ class MyApp extends StatelessWidget {
 //   ScrollController? controller;
 //   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
-
-
-
 //   @override
 //   Widget build(BuildContext context) {
 //     // final provider = Provider.of<LoginProvider>(context);
@@ -151,7 +159,6 @@ class MyApp extends StatelessWidget {
 // //     provider.isloading=false;
 // //     provider.refreshScreen();
 // //     }
-
 
 //     return Scaffold(
 //       resizeToAvoidBottomInset: true,
@@ -227,7 +234,6 @@ class MyApp extends StatelessWidget {
 //                          }else{
 //                            provider.login(provider.dialcode,  provider.textController.text,errFunction:showErrorUsingSnackBar );
 //                          }
-
 
 //                              },
 //                              child: Container(
@@ -401,11 +407,6 @@ class MyApp extends StatelessWidget {
 //                ),
 //                height: size.height,
 //                width: size.width,),*/
-
-
-
-
-
 
 //            ],
 //          )

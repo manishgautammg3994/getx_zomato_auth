@@ -1,6 +1,7 @@
 part of sign_in;
 
-class _ContinueButton extends StatelessWidget {
+class _ContinueButton extends GetView {
+  
   const _ContinueButton(
       {required this.isLoading, required this.onPressed, Key? key})
       : super(key: key);
@@ -13,7 +14,7 @@ class _ContinueButton extends StatelessWidget {
       loadingchild: const CircularProgressIndicator(),
       style: ElevatedButton.styleFrom(
           elevation: 1,
-          minimumSize: Size(double.infinity, (Get.height / 10) + 5),
+          minimumSize: Size(double.infinity, (Get.height / 15) + 5),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10))),
       onPressed: onPressed,
